@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="213.0" prefWidth="250.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.AddFriend.AddFriendController">
+   <children>
+      <Button fx:id="save" layoutX="150.0" layoutY="164.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="61.0" text="Save" />
+      <Button fx:id="cancel" layoutX="42.0" layoutY="164.0" mnemonicParsing="false" text="Cancel" />
+      <TextField fx:id="enter_name" layoutX="42.0" layoutY="55.0" promptText="Add name" />
+      <TextField fx:id="enter_IP" layoutX="42.0" layoutY="107.0" promptText="Enter IP" />
+   </children>
+</AnchorPane>
