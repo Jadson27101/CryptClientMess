@@ -116,6 +116,7 @@ public class Controller implements TCPConnectionListener {
                 }
             }
         });
+
         aboutAuthor.setOnAction(event -> {
             try {
                 FXMLDocumentController("/fxml_resources/about.fxml");
