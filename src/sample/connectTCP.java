@@ -51,7 +51,6 @@ public class connectTCP {
             ObjectOutputStream objectOutputStream = new ObjectOutputStream(socket.getOutputStream());
             objectOutputStream.writeObject(message);
             objectOutputStream.flush();
-            objectOutputStream.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
