@@ -37,7 +37,7 @@ public class Controller implements TCPConnectionListener {
     @FXML
     private ListView<String> friend_list;
     @FXML
-    private Button about;
+    private MenuItem aboutAuthor;
     @FXML // This method is called by the FXMLLoader when initialization is complete
     public connectTCP connection;
     public static ArrayList<FriendList> friendList = new ArrayList<>();
@@ -116,7 +116,7 @@ public class Controller implements TCPConnectionListener {
                 }
             }
         });
-        about.setOnAction(event -> {
+        aboutAuthor.setOnAction(event -> {
             try {
                 FXMLDocumentController("/fxml_resources/about.fxml");
             } catch (IOException e) {
