@@ -8,21 +8,15 @@ import java.util.ArrayList;
 public class connectTCP {
     private final Socket socket;
     private final Thread rxThread;
-    private final BufferedReader in;
-    private final BufferedWriter out;
     private final TCPConnectionListener eventListener;
-    private DataOutputStream dos;
     public static String nameOfFriend;
     public connectTCP(TCPConnectionListener eventListener, String IP, int port) throws IOException{
         this(eventListener, new Socket(IP, port));
     }
 
-    public connectTCP(TCPConnectionListener eventListener, Socket socket) throws IOException {
+    public connectTCP(TCPConnectionListener eventListener, Socket socket) {
         this.eventListener = eventListener;
         this.socket = socket;
-        in = new BufferedReader(new InputStreamReader(socket.getInputStream(), Charset.forName("UTF-8")));
-        out = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream(), Charset.forName("UTF-8")));
-        dos = new DataOutputStream(socket.getOutputStream());
         rxThread = new Thread(new Runnable() {
             @Override
             public void run() {
@@ -74,15 +68,6 @@ public class connectTCP {
         ois.flush();
         ois.close();
         fos.close();
-    }
-
-    public synchronized void disconnect(){
-        rxThread.interrupt();
-        try {
-            socket.close();
-        } catch (IOException e) {
-            eventListener.onException(connectTCP.this, e);
-        }
     }
     @Override
     public String toString(){
